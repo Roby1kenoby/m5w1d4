@@ -30,3 +30,8 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.selected {
+    border: 5px solid red !important;
+}
+
