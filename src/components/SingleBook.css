@@ -35,3 +35,9 @@
     border: 5px solid red !important;
 }
 
+.btnWrapper{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1em;
+}
+
