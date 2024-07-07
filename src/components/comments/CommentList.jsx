@@ -1,8 +1,19 @@
-function CommentList() {
+import './CommentList.css'
+import SingleComment from './SingleComment';
+
+function CommentList({reviews}) {
     return ( 
-        <div>
-            CommentList
-        </div>
+        <>
+        <h6>Reviews</h6>
+        <hr></hr>
+            <ul>
+                {
+                    reviews.map(r => (
+                        <SingleComment key={r._id} review={r}></SingleComment>
+                    ))
+                }
+            </ul>
+        </>
     );
 }
 
