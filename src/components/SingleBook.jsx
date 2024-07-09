@@ -1,22 +1,15 @@
 import { Card, Col, Button} from 'react-bootstrap';
 import './SingleBook.css';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import CommentArea from './comments/CommentArea.jsx';
+import { DarkTheme } from '../Context.jsx';
+
 
 function SingleBook({ book }) {
     const [selected, setSelected] = useState(false)
-    // funzione per fare il toggle della classe selected
-    // diventa superflua se inserisco una funzione anonima direttamente nell'evento onClick.
-    // quando dichiaro la funzione anonima nell'onclick è come se stessi mettendo solo il nome della funzione
-    // (come se fosse senza parentesi). Di conseguenza, react non la chaima al caricamento, ma solo su onClick
-    // const toggleSelected = function(){
-    //     setSelected(!selected)
-    // }
-    // nella card, se selected, allora c'è anche la classe, altrimenti no.
-    
-    // questo state lo uso per far comparire il modale che sta dentro CommentArea
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
+    const [darkTheme] = useContext(DarkTheme)
 
     return (
         <>
@@ -25,7 +18,7 @@ function SingleBook({ book }) {
                     <div className='imgWrapper'>
                         <Card.Img variant="top" src={book.img} />
                     </div>
-                    <Card.Body>
+                    <Card.Body className={darkTheme && 'dark'}>
                         <Card.Title>{book.title}</Card.Title>
                         <div className='cardBottom'>
                             <div className='btnWrapper'>

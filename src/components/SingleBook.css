@@ -1,3 +1,20 @@
+:root{
+    --background: white;
+}
+
+.dark {
+    --background: black;
+    --textColor: white;
+}
+/* theming */
+.card-body, .card-title, h5{
+    background-color: var(--background) !important;
+    color: var(--textColor) !important;
+}
+
+
+
+/* grid config */
 .myCol{
     display: flex;
     align-items: stretch;
@@ -41,3 +58,6 @@
     padding-bottom: 1em;
 }
 
+.card {
+    background-color: white;
+}

@@ -1,10 +1,14 @@
+import './MyNav.css'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Form } from 'react-bootstrap';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Form, Button } from 'react-bootstrap';
+import { useContext } from 'react';
+import { DarkTheme } from '../Context';
+
 
 function MyNav({filterValue, setFilterValue}) {
+    const [darkTheme, setDarkTheme] = useContext(DarkTheme)
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
@@ -31,6 +35,9 @@ function MyNav({filterValue, setFilterValue}) {
                         </Form.Group>
                     </Form>
                 </div>
+                <Button className={darkTheme ?'btn-light' : 'btn-dark'} onClick={() => setDarkTheme(!darkTheme)}>
+                    {darkTheme ? 'Ligt Cards' : 'Dark Cards'}
+                </Button>
             </Container>
         </Navbar>
     );
