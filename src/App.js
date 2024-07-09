@@ -3,13 +3,15 @@ import AllTheBooks from './components/AllTheBooks';
 import MyFooter from './components/MyFooter';
 import MyNav from './components/MyNav';
 import Welcome from './components/Welcome';
+import { useState } from 'react';
 
 function App() {
+  const [filterValue, setFilterValue] = useState('')
   return (
     <>
-      <MyNav></MyNav>
+      <MyNav filterValue={filterValue} setFilterValue={setFilterValue}></MyNav>
       <Welcome></Welcome>
-      <AllTheBooks></AllTheBooks>
+      <AllTheBooks filterValue={filterValue}></AllTheBooks>
       <MyFooter></MyFooter>
     </>
   );

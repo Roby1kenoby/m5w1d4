@@ -1,9 +1,10 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Form } from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function MyNav() {
+function MyNav({filterValue, setFilterValue}) {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
@@ -16,6 +17,20 @@ function MyNav() {
                         <Nav.Link href="#link">Browse</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
+                <div className='formContainer'>
+                    <Form onSubmit={(e) => e.preventDefault()}>
+                        <Form.Group>
+                            <Form.Control
+                                type="text"
+                                placeholder="Find your new favourite book!"
+                                name='filterValue'
+                                // evento per aggiornare il valore del campo di testo con quello che è stato
+                                // intercettato dall'evento (ciò che ha digitato l'utente)
+                                onChange={(event) => setFilterValue(event.target.value)}
+                                value={filterValue} />
+                        </Form.Group>
+                    </Form>
+                </div>
             </Container>
         </Navbar>
     );
